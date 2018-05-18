@@ -5,13 +5,49 @@ import java.util.Random;
 import Menu.Beverage;
 import javafx.scene.image.Image;
 
-public class Customer extends Person {
+public class Customer extends Entity {
+	
+	public enum state{
+		waiting, left, walk;
+	}
+	private state curState;
+	
 	private double mood;
 	private Image cusImage;
 	private Beverage bev;
+	//new boolean for check if isWaiting
+	
+	
 	public Customer() {
 		this.bev = Generator.getInstance().getRandomBev();
 		this.cusImage = Generator.getInstance().getRandomImage();
 		mood = new Random().nextDouble()*100 ; 
+		//maybe initial state 
 	}
+	
+	public void leave() {
+		//do something when not prefer to wait
+	}
+	
+	public boolean isWaiting() {
+		return false;
+		//mai bok pai thum angggg
+	}
+	
+	public void move() {
+		
+	}
+	
+	public void order() {
+		//you may need this method
+	}
+	
+
+	@Override
+	void draw() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 }

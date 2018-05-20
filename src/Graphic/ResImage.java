@@ -6,7 +6,7 @@ public class ResImage {
 	public static Image artist,astronaut,businessman,detective,doctor;
 	public static Image dragcular,elf,engineer,fireman,bride,soilder,pilot,scientist,wizzard,zombie;
 	public static Image blueberry,strawberry,cherry,nut,milk,yogurt,vanilla,chocolate,orange,banana,honey;
-	public static Image mainBG;
+	public static Image mainBG,mixBar;
 	
 	public static void loadResource() {
 		
@@ -28,17 +28,15 @@ public class ResImage {
 		
 		blueberry = new Image(ClassLoader.getSystemResource("ingre/blueberries.png").toString());
 		strawberry = new Image(ClassLoader.getSystemResource("ingre/Strawberry.png").toString());
-		cherry = new Image(ClassLoader.getSystemResource("ingre/cherry-solo.png").toString());
-		nut = new Image(ClassLoader.getSystemResource("ingre/Peanut.png").toString());
 		milk = new Image(ClassLoader.getSystemResource("ingre/milk2.png").toString());
 		yogurt = new Image(ClassLoader.getSystemResource("ingre/yogurt.png").toString());
 		chocolate = new Image(ClassLoader.getSystemResource("ingre/chocolate_bar.png").toString());
 		vanilla = new Image(ClassLoader.getSystemResource("ingre/vanilla.png").toString());
 		banana = new Image(ClassLoader.getSystemResource("ingre/banana.png").toString());
-		orange = new Image(ClassLoader.getSystemResource("ingre/orange.png").toString());
 		honey = new Image(ClassLoader.getSystemResource("ingre/honey.png").toString());
 		
 		mainBG = new Image(ClassLoader.getSystemResource("scene/build.jpg").toString());
+		mixBar = new Image(ClassLoader.getSystemResource("scene/Pim-01.jpg").toString());
 		
 	}
 }

@@ -8,9 +8,9 @@ public class BlueberryYogurt extends Beverage {
 		super.setName("BlueberryYogurt");
 		Ingredient blueberry = new Blueberry();
 		Ingredient yogurt = new Yogurt();
-		Ingredient honey = new Honey();
+		Ingredient milk = new Milk();
 		this.addIngredient(blueberry);
 		this.addIngredient(yogurt);
-		this.addIngredient(honey);
+		this.addIngredient(milk);
 	}
 }

@@ -1,17 +1,14 @@
 package character;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Random;
 
 import Graphic.ResImage;
-import Menu.BerryMilk;
 import Menu.Beverage;
-import Menu.BlueberryOrange;
 import Menu.BlueberryYogurt;
-import Menu.CherrySmoothie;
-import Menu.CherryVanilla;
-import Menu.ChocolateBananaNut;
+import Menu.ChocolateBanana;
 import Menu.ChocolateSmoothie;
 import Menu.StrawberryBanana;
 import Menu.StrawberryShortCake;
@@ -25,12 +22,7 @@ public class Generator {
 	public List<Image> images;
 	public void initialBev() {
 		beverages = new ArrayList<Beverage>();
-		beverages.add(new BerryMilk() );
-		beverages.add(new BlueberryOrange());
-		beverages.add(new BlueberryYogurt());
-		beverages.add(new CherrySmoothie());
-		beverages.add(new CherryVanilla());
-		beverages.add(new ChocolateBananaNut());
+		beverages.add(new ChocolateBanana());
 		beverages.add(new ChocolateSmoothie());
 		beverages.add(new StrawberryBanana());
 		beverages.add(new StrawberryShortCake());
@@ -59,11 +51,11 @@ public class Generator {
 	}
 	public Beverage getRandomBev() {
 		Random random = new Random();
-		return beverages.get(random.nextInt(10));
+		return beverages.get(random.nextInt(beverages.size()));
 	}
 	public Image getRandomImage() {
 		Random random = new Random();
-		return images.get(random.nextInt(15));
+		return images.get(random.nextInt(images.size()));
 	}
 	public static Generator getInstance() {
 		return singleton;

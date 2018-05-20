@@ -1,8 +1,11 @@
 package Graphic;
 
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.geometry.VPos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -29,20 +32,72 @@ public class OpeningGame extends Pane {
 		getChildren().add(main);
 		
 		Canvas stBtn = new Canvas(200,90);
-		GraphicsContext gcStBtn = stBtn.getGraphicsContext2D();
-		gcStBtn.setFill(Color.rgb(20, 20, 20, 0.5));
+		undrawBtn(stBtn);
+		addCanvasEvent(stBtn);
 		
-		gcStBtn.setFill(Color.rgb(200, 200, 200, 0.9));
+		getChildren().add(stBtn);
+		addCanvasEvent(stBtn);
+	}
+	
+	private void drawBtn(Canvas canvas) {
+		GraphicsContext gcStBtn = canvas.getGraphicsContext2D();
+		gcStBtn.setFill(Color.rgb(200, 200, 200, 1.0));
 		gcStBtn.fillRoundRect(0, 0, 200, 90, 30, 30);
-		stBtn.setTranslateX(SceneManager.SCENE_WIDTH/3+20);
-		stBtn.setTranslateY(SceneManager.SCENE_HEIGHT/2+30);
+		canvas.setTranslateX(SceneManager.SCENE_WIDTH/3+20);
+		canvas.setTranslateY(SceneManager.SCENE_HEIGHT/2+30);
 		gcStBtn.setFill(Color.BLACK);
 		gcStBtn.setFont(stFont);
 		gcStBtn.setTextBaseline(VPos.CENTER);
 		gcStBtn.setTextAlign(TextAlignment.CENTER);
-		gcStBtn.fillText("START", stBtn.getWidth()/2, stBtn.getHeight()/2);
+		gcStBtn.fillText("START", canvas.getWidth()/2, canvas.getHeight()/2);
 		
-		getChildren().add(stBtn);
-		
+
 	}
+	private void undrawBtn(Canvas canvas) {
+		GraphicsContext gcStBtn = canvas.getGraphicsContext2D();
+		gcStBtn.setFill(Color.rgb(100, 100, 100, 1.0));
+		gcStBtn.fillRoundRect(0, 0, 200, 90, 30, 30);
+		canvas.setTranslateX(SceneManager.SCENE_WIDTH/3+20);
+		canvas.setTranslateY(SceneManager.SCENE_HEIGHT/2+30);
+		gcStBtn.setFill(Color.BLACK);
+		gcStBtn.setFont(stFont);
+		gcStBtn.setTextBaseline(VPos.CENTER);
+		gcStBtn.setTextAlign(TextAlignment.CENTER);
+		gcStBtn.fillText("START", canvas.getWidth()/2, canvas.getHeight()/2);
+		
+
+	}
+	private void addCanvasEvent(Canvas canvas ) {
+		canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+			@Override
+			public void handle(MouseEvent event) {
+				// TODO Auto-generated method stub
+				SceneManager.goToGameScene();
+			}
+		});
+		canvas.setOnMouseEntered(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				// TODO Auto-generated method stub
+				drawBtn(canvas);
+			}
+		});
+		canvas.setOnMouseExited(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				// TODO Auto-generated method stub
+				undrawBtn(canvas);
+			}
+		});
+	}
+	
+	private void setTranslate(Canvas canvas , double x , double y) {
+		canvas.setTranslateX(x);
+		canvas.setTranslateY(y);
+	}
+	
+	
 }

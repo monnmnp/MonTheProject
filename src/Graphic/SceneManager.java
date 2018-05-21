@@ -12,14 +12,17 @@ public class SceneManager {
 	public static final double SCENE_WIDTH = 700;
 	public static final double SCENE_HEIGHT = 550;
 	
-	private static Pane mainManu = new OpeningGame();
-	private static Scene mainScene = new Scene(mainManu,SCENE_WIDTH,SCENE_HEIGHT);
+	private static Pane mainManu;
+	private static Scene mainScene;
 	private static Pane gameStage = new GameStage();
 	
 	public static void initialize(Stage stage) {
+		mainManu = new OpeningGame();
+		mainScene = new Scene(mainManu,SCENE_WIDTH,SCENE_HEIGHT);
 		primaryStage = stage;
 		primaryStage.setResizable(false);
 		primaryStage.show();
+		gotoOpeningGame();
 	}
 	
 	public static void gotoOpeningGame() {

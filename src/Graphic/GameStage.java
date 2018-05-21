@@ -21,9 +21,11 @@ public class GameStage extends Pane {
 	
 	public GameStage() {
 		ResImage.loadResource();
-		Canvas barMix = new Canvas(700,550);
-		GraphicsContext gc = gameStage.getGraphicsContext2D();
-		gc.drawImage(ResImage.mixBar, 0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
+		Canvas barMix = new Canvas(SceneManager.SCENE_WIDTH,220);
+		GraphicsContext gc = barMix.getGraphicsContext2D();
+		GraphicsContext g = gameStage.getGraphicsContext2D();
+		g.drawImage(ResImage.mixBar, 0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
+		setTranslate(barMix, 0, 330);
 		
 		Canvas blueberryBtn = getdrawBtn(ResImage.blueberry);
 		setTranslate(blueberryBtn, 20, 330);
@@ -64,6 +66,7 @@ public class GameStage extends Pane {
 		addOnCanvasEvent(honeyBtn, ResImage.honey);
 		
 		getChildren().add(gameStage);
+		getChildren().add(barMix);
 		getChildren().addAll(blueberryBtn,strawberryBtn,chocolateBtn,vanillaBtn);
 		getChildren().addAll(bananaBtn,milkBtn,yogurtBtn,honeyBtn);
 		

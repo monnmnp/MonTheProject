@@ -7,6 +7,8 @@ public class ResImage {
 	public static Image dragcular,elf,engineer,fireman,bride,soilder,pilot,scientist,wizzard,zombie;
 	public static Image blueberry,strawberry,cherry,nut,milk,yogurt,vanilla,chocolate,orange,banana,honey;
 	public static Image mainBG,mixBar;
+	public static Image blueOrder, chobaOrder, chocOrder, strawbaOrder, strawshortOrder, vanillaOrder;
+	public static Image blueBev, chobaBev, chocBev, strawbaBev, strawshortBev, vanillaBev;
 	
 	public static void loadResource() {
 		
@@ -37,6 +39,20 @@ public class ResImage {
 		
 		mainBG = new Image(ClassLoader.getSystemResource("scene/build.jpg").toString());
 		mixBar = new Image(ClassLoader.getSystemResource("scene/Pim-01.jpg").toString());
+		
+		blueOrder = new Image(ClassLoader.getSystemResource("bev/Blue bubble.png").toString());
+		chobaOrder = new Image(ClassLoader.getSystemResource("bev/choba bubble.png").toString());
+		chocOrder = new Image(ClassLoader.getSystemResource("bev/choc bubble.png").toString());
+		strawbaOrder = new Image(ClassLoader.getSystemResource("bev/strawba bubble.png").toString());
+		strawshortOrder = new Image(ClassLoader.getSystemResource("bev/strawshort bubble.png").toString());
+		vanillaOrder = new Image(ClassLoader.getSystemResource("bev/vanilla bubble.png").toString());
+		
+		blueBev = new Image(ClassLoader.getSystemResource("bev/Blue.png").toString());
+		chobaBev = new Image(ClassLoader.getSystemResource("bev/choba.png").toString());
+		chocBev = new Image(ClassLoader.getSystemResource("bev/choc.png").toString());
+		strawbaBev = new Image(ClassLoader.getSystemResource("bev/strawba.png").toString());
+		strawshortBev = new Image(ClassLoader.getSystemResource("bev/strawshort.png").toString());
+		vanillaBev = new Image(ClassLoader.getSystemResource("bev/vanilla.png").toString());
 		
 	}
 }

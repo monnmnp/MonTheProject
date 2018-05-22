@@ -15,7 +15,6 @@ public class SceneManager {
 	
 	private static Pane mainManu;
 	private static Scene mainScene;
-	private static Pane recipeScene = new RecipeScene();
 	private static Pane scoreBoard = new ScoreBoard();
 	
 	public static void initialize(Stage stage) {
@@ -31,12 +30,7 @@ public class SceneManager {
 		primaryStage.setScene(mainScene);
 		Manager.getInstance().runAnimationTimer();
 	}
-	
-	public static void gotoRecipeScene() {
-		Scene scene = new Scene(recipeScene) ;
-		primaryStage.setScene(scene);
-	}
-	
+		
 	public static void gotoScoreBoard() {
 		Scene scene = new Scene(Holder.getInstance().getScoreBoard());
 		primaryStage.setScene(scene);

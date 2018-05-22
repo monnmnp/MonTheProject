@@ -29,7 +29,7 @@ public class GameStage extends Pane {
 	private List<Canvas> beverages = new ArrayList<Canvas>();
 	private List<Image> images = new ArrayList<Image>();
 	private List<Canvas> customers = new ArrayList<Canvas>();
-	private Canvas recipeCV  = new Canvas(500,300);
+	private Canvas recipeCV  = new Canvas(500,400);
 	
 	public GameStage() {
 		GraphicsContext g = gameStage.getGraphicsContext2D();
@@ -282,7 +282,7 @@ public class GameStage extends Pane {
 			public void handle(Event event) {
 				// TODO Auto-generated method stub
 				GraphicsContext gc = recipeCV.getGraphicsContext2D();
-				gc.clearRect(0, 0, 500, 300);
+				gc.clearRect(0, 0, 500, 400);
 			}
 			
 		});
@@ -300,7 +300,7 @@ public class GameStage extends Pane {
 	
 	public void drawRecipe() {
 		GraphicsContext gc = recipeCV.getGraphicsContext2D();
-		gc.drawImage(ResImage.recipe, 150, 125, recipeCV.getWidth(), recipeCV.getHeight());
+		gc.drawImage(ResImage.recipe, 150, 125,500,400);
 		recipeCV.setFocusTraversable(true);
 		getChildren().add(recipeCV);
 	}

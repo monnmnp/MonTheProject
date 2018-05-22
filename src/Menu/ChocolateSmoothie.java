@@ -8,6 +8,7 @@ public class ChocolateSmoothie extends Beverage {
 		super.setPrice(10);
 		super.setBeverageImage(ResImage.chocBev);
 		super.setBlenderImage(ResImage.blendCH);
+		super.setOrderImage(ResImage.chocOrder);
 		Ingredient chocolate = new Chocolate();
 		Ingredient milk = new Milk();
 		this.addIngredient(chocolate);

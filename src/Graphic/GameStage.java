@@ -26,8 +26,9 @@ public class GameStage extends Pane {
 	public Canvas gameStage = new Canvas(SceneManager.SCENE_WIDTH,SceneManager.SCENE_HEIGHT);
 	private static final double BTN_WIDTH = 70,BTN_HEIGHT = 70;
 	private List<Canvas> ingredients = new ArrayList<Canvas>();
+	private List<Canvas> beverages = new ArrayList<Canvas>();
 	private List<Image> images = new ArrayList<Image>();
-	private Canvas orderLine = new Canvas(SceneManager.SCENE_WIDTH,330);
+	private List<Canvas> customers = new ArrayList<Canvas>();
 	
 	public GameStage() {
 		Canvas barMix = new Canvas(SceneManager.SCENE_WIDTH,220);
@@ -82,6 +83,7 @@ public class GameStage extends Pane {
 		addOnCanvasEvent(ingredients.get(7), ResImage.honey, "honey");
 		images.add(ResImage.honey);
 		
+		
 		Canvas binBtn = getdrawBtn(ResImage.bin);
 		setTranslate(binBtn, 20, 440);
 		trashEvent(binBtn,ResImage.bin);
@@ -96,6 +98,38 @@ public class GameStage extends Pane {
 		getChildren().add(barMix);
 		getChildren().addAll(ingredients.get(0),ingredients.get(1),ingredients.get(2),ingredients.get(3));
 		getChildren().addAll(ingredients.get(4),ingredients.get(5),ingredients.get(6),ingredients.get(7),blenderBtn,binBtn);
+		for(int i = 0; i < 6; i++) {
+			Canvas person = new Canvas(Customer.IMG_WIDTH,Customer.IMG_HEIGHT);
+			setTranslate(person, (i*115), 175);
+			customers.add(person);
+			getChildren().add(customers.get(i));
+		}
+		
+		for(int i = 0; i < 5; i++) {
+			Canvas bev = new Canvas(75, 75);
+			setTranslate(bev, 60+(i*115), 120);
+			beverages.add(bev);
+			getChildren().add(beverages.get(i));
+		}
+	}
+	
+	public void drawCustomer() {
+//		System.out.println("drawCustomer");
+		for(int i = 0; i < Holder.getInstance().getCustomers().size(); i++) {
+//			System.out.println(i);
+			Canvas img = customers.get(i);
+			GraphicsContext gc = img.getGraphicsContext2D();
+			gc.clearRect(0, 0, Customer.IMG_WIDTH, Customer.IMG_HEIGHT);
+			gc.drawImage(Holder.getInstance().getCustomers().get(i).getCusImage(), 0, 0, Customer.IMG_WIDTH, Customer.IMG_HEIGHT);
+		}
+		
+		for(int i = 0; i < Holder.getInstance().getCustomers().size() && i < 5; i++) {
+//			System.out.println(i);
+			Canvas img = beverages.get(i);
+			GraphicsContext gc = img.getGraphicsContext2D();
+			gc.clearRect(0, 0, 75, 75);
+			gc.drawImage(Holder.getInstance().getCustomers().get(i).getOrderImg(), 0, 0, 75, 75);
+		}
 		
 	}
 	
@@ -232,27 +266,13 @@ public class GameStage extends Pane {
 	public void drawBlender(Image img) {
 		ImageView iv = new ImageView();
 		iv.setImage(img);
-		iv.setFitHeight(300);
-		iv.setFitWidth(400);
-		iv.setTranslateX(250);
-		iv.setTranslateY(150);
+		iv.setFitHeight(188);
+		iv.setFitWidth(300);
+		iv.setTranslateX(200);
+		iv.setTranslateY(370);
 		getChildren().add(iv);
 	}
 	
 //	public void draw
-	
-	public void orderLine() {
-		setTranslate(orderLine, 0, 0);
-		List<Customer> customers = Holder.getInstance().getCustomers();
-		if(!customers.isEmpty()) {
-			for(int i = 0 ; i< Holder.getInstance().getCustomers().size() ; i++) {
-				Canvas img = new Canvas(Customer.IMG_WIDTH,Customer.IMG_HEIGHT);
-				GraphicsContext gc = img.getGraphicsContext2D();
-				gc.drawImage(customers.get(i).getCusImage(), 0, 0, Customer.IMG_WIDTH, Customer.IMG_HEIGHT);
-				setTranslate(img, 585*(i+6), 215);
-				getChildren().add(img);
-			}
-		}
-	}
 
 }

@@ -29,6 +29,8 @@ public class ScoreBoard extends Pane{
 		gc.setTextBaseline(VPos.CENTER);
 		gc.setTextAlign(TextAlignment.CENTER);
 		gc.fillText("Result", SceneManager.SCENE_WIDTH/2, 100);
+		String scoreString = String.format("sCORE : %.0f ", Holder.getInstance().getScore());
+		gc.fillText(scoreString, SceneManager.SCENE_WIDTH/2, 200 );
 		
 		drawBtn(replayBtn);
 		addCanvasEvent(replayBtn);

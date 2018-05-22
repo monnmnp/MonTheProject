@@ -8,6 +8,7 @@ public class ChocolateBanana extends Beverage {
 		this.setPrice(35);
 		this.setBeverageImage(ResImage.chobaBev);
 		this.setBlenderImage(ResImage.blendCB);
+		this.setOrderImage(ResImage.chobaOrder);
 		Ingredient chocolate = new Chocolate();
 		Ingredient banana = new Banana();
 		Ingredient milk = new Milk();

@@ -8,7 +8,15 @@ public class Beverage {
 	private int price;
 	private String name;
 	private boolean isRight;
-	private Image beverageImage,blenderImage;
+	private Image beverageImage,blenderImage,orderImage;
+	public Image getOrderImage() {
+		return orderImage;
+	}
+
+	public void setOrderImage(Image orderImage) {
+		this.orderImage = orderImage;
+	}
+
 	public Image getBlenderImage() {
 		return blenderImage;
 	}

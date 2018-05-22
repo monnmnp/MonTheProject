@@ -25,6 +25,7 @@ public class Holder {
 	private List<Ingredient> ingredients;
 	private GameStage gameStage = new GameStage();
 	private ScoreBoard scoreBoard = new ScoreBoard();
+	private int score = 0;
 	
 	private Holder() {
 		customers = new ArrayList<Customer>();
@@ -66,4 +67,11 @@ public class Holder {
 	public void createScoreBoard() {
 		scoreBoard = new ScoreBoard();
 	}
+	public void increaseScore() {
+		this.score++;
+	}
+	public int getScore() {
+		return this.score;
+	}
+
 }

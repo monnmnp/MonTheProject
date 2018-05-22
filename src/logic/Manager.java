@@ -14,7 +14,7 @@ import javafx.scene.text.TextAlignment;
 
 public class Manager {
 	public static Manager instance = new Manager();
-	private int ingedients[][] = {{1,0,0,0,0,1,1,0},{0,0,1,0,1,1,0,0}, {0,1,0,0,0,1,0,1}, {0,1,0,0,1,0,0,1}, {0,0,0,1,0,1,0,1}, {0,1,0,0,1,1,0,0}};
+	private int ingedients[][] = {{1,0,0,0,0,1,1,0},{0,0,1,0,1,1,0,0}, {0,1,0,0,0,1,0,1}, {0,0,1,0,0,1,0,1}, {0,0,0,1,0,1,0,1}, {0,1,0,0,1,1,0,0}};
 	
 	private int score = 0;
 	
@@ -44,6 +44,7 @@ public class Manager {
 //		System.out.println("-------------------");
 		updateCustomer();
 		Holder.getInstance().getGameStage().drawCanvasIngredients();
+		Holder.getInstance().getGameStage().drawCustomer();
 //		chkIngredient();
 	}
 	

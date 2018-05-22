@@ -8,6 +8,7 @@ public class StrawberryShortCake extends Beverage {
 		this.setPrice(10);
 		this.setBeverageImage(ResImage.strawshortBev);
 		this.setBlenderImage(ResImage.blendSS);
+		this.setOrderImage(ResImage.strawshortOrder);
 		Ingredient strawberry = new Strawberry();
 		Ingredient vanilla = new Vanilla();
 		Ingredient milk = new Milk();

@@ -8,6 +8,7 @@ public class VanillaSmoothie extends Beverage {
 		this.setPrice(10);
 		this.setBeverageImage(ResImage.vanillaBev);
 		this.setBlenderImage(ResImage.blendVM);
+		this.setOrderImage(ResImage.vanillaOrder);
 		Ingredient vanilla = new Vanilla();
 		Ingredient honey = new Honey();
 		Ingredient milk = new Milk();

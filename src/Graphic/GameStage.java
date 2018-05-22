@@ -89,7 +89,7 @@ public class GameStage extends Pane {
 		setTranslate(blenderBtn, BTN_WIDTH+20, 440);
 		blenderEvent(blenderBtn, ResImage.blender);
 		
-//		orderLine();
+		orderLine();
 		
 		getChildren().add(gameStage);
 		getChildren().add(barMix);
@@ -227,13 +227,18 @@ public class GameStage extends Pane {
 		});
 	}
 	
+	public void drawBlender() {
+		
+	}
+	
 	public void orderLine() {
 		setTranslate(orderLine, 0, 0);
 		List<Customer> customers = Holder.getInstance().getCustomers();
 		if(!customers.isEmpty()) {
 			for(int i = 0 ; i< Holder.getInstance().getCustomers().size() ; i++) {
 				Canvas img = new Canvas(Customer.IMG_WIDTH,Customer.IMG_HEIGHT);
-				customers.get(i).draw(img);
+				GraphicsContext gc = img.getGraphicsContext2D();
+				gc.drawImage(customers.get(i).getCusImage(), 0, 0, Customer.IMG_WIDTH, Customer.IMG_HEIGHT);
 				setTranslate(img, 585*(i+6), 215);
 				getChildren().add(img);
 			}

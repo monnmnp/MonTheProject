@@ -111,7 +111,7 @@ public class Manager {
 		new AnimationTimer() {
 			private long startTime ;
 			private boolean isFirstFrame = true;
-			private long limitTime = 120;
+			private long limitTime = 10;
 			public Canvas testt = new Canvas(200,80);
 			private Font timeFont = Font.loadFont(ClassLoader.getSystemResourceAsStream("font/queen.otf"), 25);
 			@Override

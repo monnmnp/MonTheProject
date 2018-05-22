@@ -24,7 +24,7 @@ public class Holder {
 	private List<Customer> customers ;
 	private List<Ingredient> ingredients;
 	private GameStage gameStage = new GameStage();
-	private ScoreBoard scoreBoard = new ScoreBoard();
+	private ScoreBoard scoreBoard;
 	private int score = 0;
 	
 	private Holder() {

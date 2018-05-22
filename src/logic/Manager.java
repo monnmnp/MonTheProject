@@ -1,5 +1,6 @@
 package logic;
 
+import Graphic.SceneManager;
 import Menu.Ingredient;
 import character.Customer;
 import character.Generator;
@@ -51,6 +52,10 @@ public class Manager {
 	
 	public void gameOver() {
 		// do something when game over
+		Holder.getInstance().getCustomers().clear();
+		Holder.getInstance().getGameStage().getChildren().clear();
+		Holder.getInstance().createGameState();
+		SceneManager.gotoScoreBoard();
 	}
 	
 	public boolean chkRecipe(String order) {
@@ -105,11 +110,15 @@ public class Manager {
 				if (isFirstFrame) {
 					startTime = now;
 					isFirstFrame = false;
+					Holder.getInstance().getGameStage().getChildren().add(testt);
 				}
-				double realTime = (now - startTime)/1.0e9;
+				double realTime = (now - startTime)/1.0e8;
 				double countTime = (limitTime - realTime);
 				
-				if(realTime >= limitTime) this.stop();
+				if(realTime >= limitTime) {
+					gameOver();
+					this.stop();
+				}
 				GraphicsContext gc = testt.getGraphicsContext2D();
 				String timeString = String.format("Time : %.0f s", countTime);
 				gc.setFill(Color.WHITESMOKE);

@@ -52,4 +52,8 @@ public class Holder {
 	public List<Ingredient> getIngredients(){
 		return this.ingredients;
 	}
+	
+	public void createGameState() {
+		gameStage = new GameStage();
+	}
 }

@@ -26,18 +26,10 @@ public class Customer extends Entity {
 		//maybe initial state 
 	}
 	
-	public void leave() {
-		//do something when not prefer to wait
-	}
-	
 	public boolean isWaiting() {
 		if(this.isWaiting) return true;
 		return false;
 		//mai bok pai thum angggg
-	}
-	
-	public void move() {
-		
 	}
 	
 	public String order() {

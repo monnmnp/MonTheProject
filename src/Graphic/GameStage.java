@@ -23,6 +23,7 @@ public class GameStage extends Pane {
 	private static final double BTN_WIDTH = 70,BTN_HEIGHT = 70;
 	
 	
+	
 	public GameStage() {
 		Canvas barMix = new Canvas(SceneManager.SCENE_WIDTH,220);
 		GraphicsContext gc = barMix.getGraphicsContext2D();
@@ -189,10 +190,6 @@ public class GameStage extends Pane {
 			}
 			
 		});
-	}
-	
-	public void drawCropImage(GraphicsContext gc, Image img) {
-		
 	}
 
 }

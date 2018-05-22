@@ -14,7 +14,7 @@ public class SceneManager {
 	
 	private static Pane mainManu;
 	private static Scene mainScene;
-	private static Pane gameStage = new GameStage();
+	private static Pane scoreBoard = new ScoreBoard();
 	
 	public static void initialize(Stage stage) {
 		mainManu = new OpeningGame();
@@ -30,8 +30,8 @@ public class SceneManager {
 		primaryStage.setScene(mainScene);
 	}
 	
-	public static void gotoThisScene(Pane pane) {
-		Scene scene = new Scene(pane, SCENE_WIDTH, SCENE_HEIGHT);
+	public static void gotoScoreBoard() {
+		Scene scene = new Scene(scoreBoard);
 		primaryStage.setScene(scene);
 	}
 	

@@ -22,11 +22,12 @@ public class Generator {
 	public List<Image> images;
 	public void initialBev() {
 		beverages = new ArrayList<Beverage>();
+		beverages.add(new BlueberryYogurt());
 		beverages.add(new ChocolateBanana());
-		beverages.add(new ChocolateSmoothie());
-		beverages.add(new StrawberryBanana());
 		beverages.add(new StrawberryShortCake());
+		beverages.add(new ChocolateSmoothie());
 		beverages.add(new VanillaSmoothie());
+		beverages.add(new StrawberryBanana());
 	}
 	public void initialImage() {
 		images = new ArrayList<Image>();
@@ -48,6 +49,7 @@ public class Generator {
 	}
 	private Generator() {
 		initialBev();
+		initialImage();
 	}
 	public Beverage getRandomBev() {
 		Random random = new Random();

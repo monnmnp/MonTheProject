@@ -10,7 +10,7 @@ public class ResImage {
 	public static Image blueOrder, chobaOrder, chocOrder, strawbaOrder, strawshortOrder, vanillaOrder;
 	public static Image blueBev, chobaBev, chocBev, strawbaBev, strawshortBev, vanillaBev;
 	public static Image blender;
-	public static Image replayd,replayb;
+	public static Image replayd,replayb,bin;
 	
 	public static void loadResource() {
 		
@@ -57,10 +57,11 @@ public class ResImage {
 		strawshortBev = new Image(ClassLoader.getSystemResource("bev/strawshort.png").toString());
 		vanillaBev = new Image(ClassLoader.getSystemResource("bev/vanilla.png").toString());
 		
-		blender = new Image(ClassLoader.getSystemResource("bev/blender.gif").toString());
+		blender = new Image(ClassLoader.getSystemResource("etc/blender.png").toString());
 		
 		replayb = new Image(ClassLoader.getSystemResource("etc/replayb.png").toString()); 
 		replayd = new Image(ClassLoader.getSystemResource("etc/replayd.png").toString()); 
+		bin = new Image(ClassLoader.getSystemResource("etc/binn.png").toString());
 		
 	}
 }

@@ -68,14 +68,18 @@ public class GameStage extends Pane {
 		setTranslate(honeyBtn, BTN_WIDTH*7+20, 330);
 		addOnCanvasEvent(honeyBtn, ResImage.honey, "honey");
 		
+		Canvas binBtn = getdrawBtn(ResImage.bin);
+		setTranslate(binBtn, 20, 440);
+		trashEvent(binBtn,ResImage.bin);
+		
 		Canvas blenderBtn = getdrawBtn(ResImage.blender);
-		setTranslate(blenderBtn, 20, 440);
+		setTranslate(blenderBtn, BTN_WIDTH+20, 440);
 		blenderEvent(blenderBtn, ResImage.blender);
 		
 		getChildren().add(gameStage);
 		getChildren().add(barMix);
 		getChildren().addAll(blueberryBtn,strawberryBtn,chocolateBtn,vanillaBtn);
-		getChildren().addAll(bananaBtn,milkBtn,yogurtBtn,honeyBtn,blenderBtn);
+		getChildren().addAll(bananaBtn,milkBtn,yogurtBtn,honeyBtn,blenderBtn,binBtn);
 		
 	}
 	
@@ -113,6 +117,7 @@ public class GameStage extends Pane {
 			@Override
 			public void handle(MouseEvent event) {
 				// TODO Auto-generated method stub
+				Manager.getInstance().serve();
 				
 			}
 		});
@@ -141,13 +146,30 @@ public class GameStage extends Pane {
 			@Override
 			public void handle(MouseEvent event) {
 				// TODO Auto-generated method stub
-				drawBtn(canvas, img);
 				for(Ingredient x : Holder.getInstance().getIngredients()) {
 					if(x.getName() == name) {
-						if(x.isPick()==true) x.setPick(false);
-						x.setPick(true);
+						if(x.isPick()==true) {
+							x.setPick(false);
+							drawBtn(canvas, img);
+						}
+						else{
+							x.setPick(true);
+							drawBoard(canvas, img);
+						}
 					}
+					
 				}
+			}
+		});
+		
+	}
+	private void trashEvent(Canvas canvas,Image img){
+		canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+			@Override
+			public void handle(MouseEvent event) {
+				// TODO Auto-generated method stub
+				
 			}
 		});
 		canvas.setOnMouseEntered(new EventHandler<Event>() {
@@ -167,6 +189,10 @@ public class GameStage extends Pane {
 			}
 			
 		});
+	}
+	
+	public void drawCropImage(GraphicsContext gc, Image img) {
+		
 	}
 
 }

@@ -23,6 +23,7 @@ public class SceneManager {
 		primaryStage.setResizable(false);
 		primaryStage.show();
 		gotoOpeningGame();
+		Manager.getInstance().runAnimationTimer();
 	}
 	
 	public static void gotoOpeningGame() {

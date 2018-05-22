@@ -15,7 +15,6 @@ public class Customer extends Entity {
 	private Image cusImage;
 	private Beverage bev;
 	private boolean isWaiting = true;
-	public static int IMG_WIDTH = 60 ,IMG_HEIGHT =60;
 	//new boolean for check if isWaiting
 	
 	
@@ -36,13 +35,14 @@ public class Customer extends Entity {
 		return false;
 		//mai bok pai thum angggg
 	}
-
+	
 	public void move() {
 		
 	}
 	
-	public void order() {
+	public String order() {
 		//you may need this method
+		return this.bev.getName();
 	}
 	
 
@@ -52,5 +52,11 @@ public class Customer extends Entity {
 		
 	}
 	
+	public boolean getIsWaiting() {
+		return this.isWaiting;
+	}
 	
+	public void setIsWaiting(boolean isWaiting) {
+		this.isWaiting = isWaiting;
+	}
 }

@@ -8,7 +8,15 @@ public class Beverage {
 	private int price;
 	private String name;
 	private boolean isRight;
-	private Image beverageImage;
+	private Image beverageImage,blenderImage;
+	public Image getBlenderImage() {
+		return blenderImage;
+	}
+
+	public void setBlenderImage(Image blenderImage) {
+		this.blenderImage = blenderImage;
+	}
+
 	private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
 	
 	public Beverage() {

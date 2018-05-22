@@ -11,6 +11,7 @@ public class ResImage {
 	public static Image blueBev, chobaBev, chocBev, strawbaBev, strawshortBev, vanillaBev;
 	public static Image blender;
 	public static Image replayd,replayb,bin;
+	public static Image blendBY,blendCB,blendCH,blendSB,blendSS,blendVM;
 	
 	public static void loadResource() {
 		
@@ -57,11 +58,18 @@ public class ResImage {
 		strawshortBev = new Image(ClassLoader.getSystemResource("bev/strawshort.png").toString());
 		vanillaBev = new Image(ClassLoader.getSystemResource("bev/vanilla.png").toString());
 		
-		blender = new Image(ClassLoader.getSystemResource("etc/blender.png").toString());
+		blender = new Image(ClassLoader.getSystemResource("etc/blender2.png").toString());
 		
 		replayb = new Image(ClassLoader.getSystemResource("etc/replayb.png").toString()); 
 		replayd = new Image(ClassLoader.getSystemResource("etc/replayd.png").toString()); 
 		bin = new Image(ClassLoader.getSystemResource("etc/binn.png").toString());
+		
+		blendBY = new Image(ClassLoader.getSystemResource("gif/BY_blender.gif").toString());
+		blendCB = new Image(ClassLoader.getSystemResource("gif/CB_blender.gif").toString());
+		blendCH = new Image(ClassLoader.getSystemResource("gif/CH_blender.gif").toString());
+		blendSB = new Image(ClassLoader.getSystemResource("gif/SB_blender.gif").toString());
+		blendSS = new Image(ClassLoader.getSystemResource("gif/SS_blender.gif").toString());
+		blendVM = new Image(ClassLoader.getSystemResource("gif/VM_blender.gif").toString());
 		
 	}
 }

@@ -8,6 +8,7 @@ public class BlueberryYogurt extends Beverage {
 		super.setPrice(15);
 		super.setName("BlueberryYogurt");
 		super.setBeverageImage(ResImage.blueBev);
+		super.setBlenderImage(ResImage.blendBY);
 		Ingredient blueberry = new Blueberry();
 		Ingredient yogurt = new Yogurt();
 		Ingredient milk = new Milk();

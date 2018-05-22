@@ -40,14 +40,30 @@ public class Customer extends Entity {
 	
 
 	@Override
-	void draw(Canvas canvas) {
+	public void draw(Canvas canvas) {
 		// TODO Auto-generated method stub
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		gc.drawImage(cusImage, 0, 0, IMG_WIDTH, IMG_HEIGHT);
 	}
 	
+	public Image getCusImage() {
+		return cusImage;
+	}
+
+	public void setCusImage(Image cusImage) {
+		this.cusImage = cusImage;
+	}
+
 	public boolean getIsWaiting() {
 		return this.isWaiting;
+	}
+	
+	public Image getBevImg() {
+		return this.bev.getBeverageImage();
+	}
+	
+	public Image getBlenderImg() {
+		return this.bev.getBlenderImage();
 	}
 	
 	public void setIsWaiting(boolean isWaiting) {

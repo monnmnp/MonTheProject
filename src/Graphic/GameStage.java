@@ -1,5 +1,8 @@
 package Graphic;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import Menu.Blueberry;
 import Menu.Ingredient;
 import character.Customer;
@@ -21,8 +24,9 @@ import logic.Manager;
 public class GameStage extends Pane {
 	public Canvas gameStage = new Canvas(SceneManager.SCENE_WIDTH,SceneManager.SCENE_HEIGHT);
 	private static final double BTN_WIDTH = 70,BTN_HEIGHT = 70;
-	
-	
+	private List<Canvas> ingredients = new ArrayList<Canvas>();
+	private List<Image> images = new ArrayList<Image>();
+	private Canvas orderLine = new Canvas(SceneManager.SCENE_WIDTH,330);
 	
 	public GameStage() {
 		Canvas barMix = new Canvas(SceneManager.SCENE_WIDTH,220);
@@ -31,43 +35,51 @@ public class GameStage extends Pane {
 		g.drawImage(ResImage.mixBar, 0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
 		setTranslate(barMix, 0, 330);
 		
-		Canvas blueberryBtn = getdrawBtn(ResImage.blueberry);
-		setTranslate(blueberryBtn, 20, 330);
-		blueberryBtn.setFocusTraversable(true);
-		addOnCanvasEvent(blueberryBtn, ResImage.blueberry, "blueberry");
+		ingredients.add(getdrawBtn(ResImage.blueberry));
+		setTranslate(ingredients.get(0), 20, 330);
+		ingredients.get(0).setFocusTraversable(true);
+		addOnCanvasEvent(ingredients.get(0), ResImage.blueberry, "blueberry");
+		images.add(ResImage.blueberry);
 		
-		Canvas strawberryBtn = getdrawBtn(ResImage.strawberry);
-		setTranslate(strawberryBtn, BTN_WIDTH+20, 330);
-		strawberryBtn.setFocusTraversable(true);
-		addOnCanvasEvent(strawberryBtn, ResImage.strawberry, "strawberry");
+		ingredients.add(getdrawBtn(ResImage.strawberry));
+		setTranslate(ingredients.get(1), BTN_WIDTH+20, 330);
+		ingredients.get(1).setFocusTraversable(true);
+		addOnCanvasEvent(ingredients.get(1), ResImage.strawberry, "strawberry");
+		images.add(ResImage.strawberry);
 		
-		Canvas chocolateBtn = getdrawBtn(ResImage.chocolate);
-		setTranslate(chocolateBtn, BTN_WIDTH*2+20, 330);
-		chocolateBtn.setFocusTraversable(true);
-		addOnCanvasEvent(chocolateBtn , ResImage.chocolate, "chocolate");
+		ingredients.add(getdrawBtn(ResImage.chocolate));
+		setTranslate(ingredients.get(2), BTN_WIDTH*2+20, 330);
+		ingredients.get(2).setFocusTraversable(true);
+		addOnCanvasEvent(ingredients.get(2) , ResImage.chocolate, "chocolate");
+		images.add(ResImage.chocolate);
 		
-		Canvas vanillaBtn  = getdrawBtn(ResImage.vanilla);
-		setTranslate(vanillaBtn, BTN_WIDTH*3+20, 330);
-		vanillaBtn.setFocusTraversable(true);
-		addOnCanvasEvent(vanillaBtn, ResImage.vanilla, "vanilla");
+		ingredients.add(getdrawBtn(ResImage.vanilla));
+		setTranslate(ingredients.get(3), BTN_WIDTH*3+20, 330);
+		ingredients.get(3).setFocusTraversable(true);
+		addOnCanvasEvent(ingredients.get(3), ResImage.vanilla, "vanilla");
+		images.add(ResImage.vanilla);
 		
-		Canvas bananaBtn = getdrawBtn(ResImage.banana);
-		setTranslate(bananaBtn, BTN_WIDTH*4+20, 330);
-		bananaBtn.setFocusTraversable(true);
-		addOnCanvasEvent(bananaBtn, ResImage.banana, "banana");
+		ingredients.add(getdrawBtn(ResImage.banana));
+		setTranslate(ingredients.get(4), BTN_WIDTH*4+20, 330);
+		ingredients.get(4).setFocusTraversable(true);
+		addOnCanvasEvent(ingredients.get(4), ResImage.banana, "banana");
+		images.add(ResImage.banana);
 		
-		Canvas milkBtn = getdrawBtn(ResImage.milk);
-		setTranslate(milkBtn, BTN_WIDTH*5+20, 330);
-		milkBtn.setFocusTraversable(true);
-		addOnCanvasEvent(milkBtn, ResImage.milk, "milk");
+		ingredients.add(getdrawBtn(ResImage.milk));
+		setTranslate(ingredients.get(5), BTN_WIDTH*5+20, 330);
+		ingredients.get(5).setFocusTraversable(true);
+		addOnCanvasEvent(ingredients.get(5), ResImage.milk, "milk");
+		images.add(ResImage.milk);
 		
-		Canvas yogurtBtn = getdrawBtn(ResImage.yogurt);
-		setTranslate(yogurtBtn, BTN_WIDTH*6+20, 330);
-		addOnCanvasEvent(yogurtBtn, ResImage.yogurt, "yogurt");
+		ingredients.add(getdrawBtn(ResImage.yogurt));
+		setTranslate(ingredients.get(6), BTN_WIDTH*6+20, 330);
+		addOnCanvasEvent(ingredients.get(6), ResImage.yogurt, "yogurt");
+		images.add(ResImage.yogurt);
 		
-		Canvas honeyBtn = getdrawBtn(ResImage.honey);
-		setTranslate(honeyBtn, BTN_WIDTH*7+20, 330);
-		addOnCanvasEvent(honeyBtn, ResImage.honey, "honey");
+		ingredients.add(getdrawBtn(ResImage.honey));
+		setTranslate(ingredients.get(7), BTN_WIDTH*7+20, 330);
+		addOnCanvasEvent(ingredients.get(7), ResImage.honey, "honey");
+		images.add(ResImage.honey);
 		
 		Canvas binBtn = getdrawBtn(ResImage.bin);
 		setTranslate(binBtn, 20, 440);
@@ -77,10 +89,12 @@ public class GameStage extends Pane {
 		setTranslate(blenderBtn, BTN_WIDTH+20, 440);
 		blenderEvent(blenderBtn, ResImage.blender);
 		
+//		orderLine();
+		
 		getChildren().add(gameStage);
 		getChildren().add(barMix);
-		getChildren().addAll(blueberryBtn,strawberryBtn,chocolateBtn,vanillaBtn);
-		getChildren().addAll(bananaBtn,milkBtn,yogurtBtn,honeyBtn,blenderBtn,binBtn);
+		getChildren().addAll(ingredients.get(0),ingredients.get(1),ingredients.get(2),ingredients.get(3));
+		getChildren().addAll(ingredients.get(4),ingredients.get(5),ingredients.get(6),ingredients.get(7),blenderBtn,binBtn);
 		
 	}
 	
@@ -112,13 +126,34 @@ public class GameStage extends Pane {
 		canvas.setTranslateY(y);
 	}
 	
+	public void drawCanvasIngredients() {
+		for(int i = 0; i < 8; i++) {
+			Canvas canvas = ingredients.get(i);
+			Image img = images.get(i);
+			if(Holder.getInstance().getIngredients().get(i).isPick()) {
+				drawBoard(canvas, img);
+			}
+			else {
+				drawBtn(canvas, img);
+			}
+		}
+	}
+	
 	private void blenderEvent(Canvas canvas,Image img){
 		canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 			@Override
 			public void handle(MouseEvent event) {
 				// TODO Auto-generated method stub
-				Manager.getInstance().serve();
+				System.out.println("Serve111");
+				if(Manager.getInstance().serve()) {
+					System.out.println("Serve");
+					Canvas blend = new Canvas(400,300);
+					GraphicsContext gc = blend.getGraphicsContext2D();
+					gc.drawImage(Holder.getInstance().getCustomers().get(0).getBlenderImg(), 0, 0, 400, 300);
+					setTranslate(blend, 150, 250);
+					getChildren().add(blend);
+				}
 				
 			}
 		});
@@ -151,11 +186,9 @@ public class GameStage extends Pane {
 					if(x.getName() == name) {
 						if(x.isPick()==true) {
 							x.setPick(false);
-							drawBtn(canvas, img);
 						}
 						else{
 							x.setPick(true);
-							drawBoard(canvas, img);
 						}
 					}
 					
@@ -170,7 +203,9 @@ public class GameStage extends Pane {
 			@Override
 			public void handle(MouseEvent event) {
 				// TODO Auto-generated method stub
-				
+				for(int i = 0; i < 8; i++) {
+					Holder.getInstance().getIngredients().get(i).setPick(false);
+				}
 			}
 		});
 		canvas.setOnMouseEntered(new EventHandler<Event>() {
@@ -192,11 +227,17 @@ public class GameStage extends Pane {
 		});
 	}
 	
-	public Canvas orderLine() {
-		Canvas orderLine = new Canvas(SceneManager.SCENE_WIDTH,330);
+	public void orderLine() {
 		setTranslate(orderLine, 0, 0);
-		
-		return orderLine;
+		List<Customer> customers = Holder.getInstance().getCustomers();
+		if(!customers.isEmpty()) {
+			for(int i = 0 ; i< Holder.getInstance().getCustomers().size() ; i++) {
+				Canvas img = new Canvas(Customer.IMG_WIDTH,Customer.IMG_HEIGHT);
+				customers.get(i).draw(img);
+				setTranslate(img, 585*(i+6), 215);
+				getChildren().add(img);
+			}
+		}
 	}
 
 }

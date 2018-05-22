@@ -43,6 +43,7 @@ public class Manager {
 	public void gameUpdate() { //update game in every time unit
 //		System.out.println("-------------------");
 		updateCustomer();
+		Holder.getInstance().getGameStage().drawCanvasIngredients();
 //		chkIngredient();
 	}
 	
@@ -52,6 +53,9 @@ public class Manager {
 	
 	public void gameOver() {
 		// do something when game over
+		for(int i = 0; i < 8; i++) {
+			Holder.getInstance().getIngredients().get(i).setPick(false);
+		}
 		Holder.getInstance().getCustomers().clear();
 		Holder.getInstance().getGameStage().getChildren().clear();
 		Holder.getInstance().createGameState();
@@ -88,6 +92,10 @@ public class Manager {
 			customer.setIsWaiting(false);
 			score++;
 			System.out.println("serve");
+			for(int i = 0; i < 8; i++) {
+				Holder.getInstance().getIngredients().get(i).setPick(false);
+			}
+			return true ;
 		}
 		else {
 			//serve the wrong person --> do something
@@ -103,7 +111,7 @@ public class Manager {
 			private long startTime ;
 			private boolean isFirstFrame = true;
 			private long limitTime = 120;
-			public Canvas testt = new Canvas(300,100);
+			public Canvas testt = new Canvas(200,80);
 			private Font timeFont = Font.loadFont(ClassLoader.getSystemResourceAsStream("font/queen.otf"), 25);
 			@Override
 			public void handle(long now) {
@@ -112,7 +120,7 @@ public class Manager {
 					isFirstFrame = false;
 					Holder.getInstance().getGameStage().getChildren().add(testt);
 				}
-				double realTime = (now - startTime)/1.0e8;
+				double realTime = (now - startTime)/1.0e9;
 				double countTime = (limitTime - realTime);
 				
 				if(realTime >= limitTime) {

@@ -31,12 +31,12 @@ public class Holder {
 		ingredients = new ArrayList<Ingredient>();
 		ingredients.add(new Blueberry());
 		ingredients.add(new Strawberry());
-		ingredients.add(new Vanilla());
-		ingredients.add(new Honey());
 		ingredients.add(new Chocolate());
+		ingredients.add(new Vanilla());
 		ingredients.add(new Banana());
 		ingredients.add(new Milk());
 		ingredients.add(new Yogurt());
+		ingredients.add(new Honey());
 	}
 	
 	public static Holder getInstance() {

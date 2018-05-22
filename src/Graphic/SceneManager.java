@@ -23,15 +23,15 @@ public class SceneManager {
 		primaryStage.setResizable(false);
 		primaryStage.show();
 		gotoOpeningGame();
-		Manager.getInstance().runAnimationTimer();
 	}
 	
 	public static void gotoOpeningGame() {
 		primaryStage.setScene(mainScene);
+		Manager.getInstance().runAnimationTimer();
 	}
 	
 	public static void gotoScoreBoard() {
-		Scene scene = new Scene(scoreBoard);
+		Scene scene = new Scene(Holder.getInstance().getScoreBoard());
 		primaryStage.setScene(scene);
 	}
 	

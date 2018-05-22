@@ -7,12 +7,6 @@ import javafx.scene.image.Image;
 public class Beverage {
 	private int price;
 	private String name;
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	private boolean isRight;
 	private Image beverageImage;
 	private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
@@ -34,6 +28,14 @@ public class Beverage {
 	
 	public boolean isRight() {
 		return isRight;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	public void setRight(boolean isRight) {

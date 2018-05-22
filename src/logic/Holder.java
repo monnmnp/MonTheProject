@@ -6,6 +6,7 @@ import java.util.List;
 import javax.sound.midi.MidiEvent;
 
 import Graphic.GameStage;
+import Graphic.ScoreBoard;
 import Menu.Banana;
 import Menu.Blueberry;
 import Menu.Chocolate;
@@ -23,6 +24,7 @@ public class Holder {
 	private List<Customer> customers ;
 	private List<Ingredient> ingredients;
 	private GameStage gameStage = new GameStage();
+	private ScoreBoard scoreBoard = new ScoreBoard();
 	
 	private Holder() {
 		customers = new ArrayList<Customer>();
@@ -55,5 +57,13 @@ public class Holder {
 	
 	public void createGameState() {
 		gameStage = new GameStage();
+	}
+	
+	public ScoreBoard getScoreBoard() {
+		return scoreBoard;
+	}
+	
+	public void createScoreBoard() {
+		scoreBoard = new ScoreBoard();
 	}
 }

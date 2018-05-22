@@ -191,5 +191,12 @@ public class GameStage extends Pane {
 			
 		});
 	}
+	
+	public Canvas orderLine() {
+		Canvas orderLine = new Canvas(SceneManager.SCENE_WIDTH,330);
+		setTranslate(orderLine, 0, 0);
+		
+		return orderLine;
+	}
 
 }

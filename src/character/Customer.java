@@ -3,6 +3,8 @@ package character;
 import java.util.Random;
 
 import Menu.Beverage;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public class Customer extends Entity {
@@ -11,17 +13,16 @@ public class Customer extends Entity {
 		waiting, left, walk;
 	}
 	private state currentState;
-	private double mood;
 	private Image cusImage;
 	private Beverage bev;
 	private boolean isWaiting = true;
+	public static final int IMG_WIDTH = 115 , IMG_HEIGHT = 155;
 	//new boolean for check if isWaiting
 	
 	
 	public Customer() {
 		this.bev = Generator.getInstance().getRandomBev();
 		this.cusImage = Generator.getInstance().getRandomImage();
-		mood = new Random().nextDouble()*100 ;
 		currentState = state.walk;
 		//maybe initial state 
 	}
@@ -34,14 +35,15 @@ public class Customer extends Entity {
 	
 	public String order() {
 		//you may need this method
-		return this.bev.getName();
+		return bev.getName();
 	}
 	
 
 	@Override
-	void draw() {
+	void draw(Canvas canvas) {
 		// TODO Auto-generated method stub
-		
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		gc.drawImage(cusImage, 0, 0, IMG_WIDTH, IMG_HEIGHT);
 	}
 	
 	public boolean getIsWaiting() {

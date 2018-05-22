@@ -10,6 +10,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
+import logic.Holder;
 
 public class ScoreBoard extends Pane{
 	Canvas scoreBoard = new Canvas(SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
@@ -59,6 +60,8 @@ public class ScoreBoard extends Pane{
 			public void handle(MouseEvent event) {
 				// TODO Auto-generated method stub
 				SceneManager.gotoOpeningGame();
+				Holder.getInstance().getScoreBoard().getChildren().clear();
+				Holder.getInstance().createScoreBoard();
 			}
 		});
 		canvas.setOnMouseEntered(new EventHandler<Event>() {

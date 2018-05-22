@@ -19,21 +19,35 @@ public class Beverage {
 	
 	public Beverage() {
 	}
+	
+	public Image getBeverageImage() {
+		return beverageImage;
+	}
+	
+	public void setBeverageImage(Image beverageImage) {
+		this.beverageImage = beverageImage;
+	}
+	
 	public void addIngredient(Ingredient ingredient) {
 		ingredients.add(ingredient);
 	}
+	
 	public boolean isRight() {
 		return isRight;
 	}
+	
 	public void setRight(boolean isRight) {
 		this.isRight = isRight;
 	}
+	
 	public int getPrice() {
 		return price;
 	}
+	
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	
 	public String toString() {
 		String s = "";
 		for(Ingredient x:ingredients) {
@@ -41,6 +55,7 @@ public class Beverage {
 		}
 		return s;
 	}
+	
 	public boolean equal(Beverage other) {
 		if(this.toString() == other.toString()) return true;
 		return false;

@@ -28,7 +28,6 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			ResImage.loadResource();
-			Pane root = new Pane();
 			SceneManager.initialize(primaryStage);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -38,6 +37,5 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
-		System.out.println(Generator.getInstance().getRandomBev().toString());
 	}
 }

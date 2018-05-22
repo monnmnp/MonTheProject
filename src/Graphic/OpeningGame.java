@@ -13,7 +13,7 @@ import javafx.scene.text.TextAlignment;
 
 public class OpeningGame extends Pane {
 	private Canvas main = new Canvas(SceneManager.SCENE_WIDTH,SceneManager.SCENE_HEIGHT);
-	private Font nameFont  = Font.loadFont(ClassLoader.getSystemResourceAsStream("font/hotpizza.ttf"), 55);
+	private Font nameFont  = Font.loadFont(ClassLoader.getSystemResourceAsStream("font/impact.ttf"), 85);
 	private Font stFont = Font.loadFont(ClassLoader.getSystemResourceAsStream("font/queen.otf"), 40);
 	
 	public OpeningGame() {
@@ -21,12 +21,12 @@ public class OpeningGame extends Pane {
 		GraphicsContext gc = main.getGraphicsContext2D();
 		gc.drawImage(ResImage.mainBG, 0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
 		gc.setFont(nameFont);
-		gc.setFill(Color.WHITE);
+		gc.setFill(Color.DARKRED);
 		gc.setTextBaseline(VPos.CENTER);
 		gc.setTextAlign(TextAlignment.CENTER);
 		gc.fillText("SMOOTHIES\nGUY", SceneManager.SCENE_WIDTH/2, SceneManager.SCENE_HEIGHT/3);
-		gc.setStroke(Color.CHOCOLATE);
-		gc.setLineWidth(3);
+		gc.setStroke(Color.BLACK);
+		gc.setLineWidth(2);
 		gc.strokeText("SMOOTHIES\nGUY", SceneManager.SCENE_WIDTH/2, SceneManager.SCENE_HEIGHT/3);
 		
 		getChildren().add(main);
@@ -36,34 +36,31 @@ public class OpeningGame extends Pane {
 		addCanvasEvent(stBtn);
 		
 		getChildren().add(stBtn);
-		addCanvasEvent(stBtn);
 	}
 	
 	private void drawBtn(Canvas canvas) {
-		GraphicsContext gcStBtn = canvas.getGraphicsContext2D();
-		gcStBtn.setFill(Color.rgb(200, 200, 200, 1.0));
-		gcStBtn.fillRoundRect(0, 0, 200, 90, 30, 30);
-		canvas.setTranslateX(SceneManager.SCENE_WIDTH/3+20);
-		canvas.setTranslateY(SceneManager.SCENE_HEIGHT/2+30);
-		gcStBtn.setFill(Color.BLACK);
-		gcStBtn.setFont(stFont);
-		gcStBtn.setTextBaseline(VPos.CENTER);
-		gcStBtn.setTextAlign(TextAlignment.CENTER);
-		gcStBtn.fillText("START", canvas.getWidth()/2, canvas.getHeight()/2);
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		gc.setFill(Color.rgb(200, 200, 200, 1.0));
+		gc.fillRoundRect(0, 0, 200, 90, 30, 30);
+		setTranslate(canvas, SceneManager.SCENE_WIDTH/3+20, SceneManager.SCENE_HEIGHT/2+30);
+		gc.setFill(Color.BLACK);
+		gc.setFont(stFont);
+		gc.setTextBaseline(VPos.CENTER);
+		gc.setTextAlign(TextAlignment.CENTER);
+		gc.fillText("PLAY", canvas.getWidth()/2, canvas.getHeight()/2);
 		
 
 	}
 	private void undrawBtn(Canvas canvas) {
-		GraphicsContext gcStBtn = canvas.getGraphicsContext2D();
-		gcStBtn.setFill(Color.rgb(100, 100, 100, 1.0));
-		gcStBtn.fillRoundRect(0, 0, 200, 90, 30, 30);
-		canvas.setTranslateX(SceneManager.SCENE_WIDTH/3+20);
-		canvas.setTranslateY(SceneManager.SCENE_HEIGHT/2+30);
-		gcStBtn.setFill(Color.BLACK);
-		gcStBtn.setFont(stFont);
-		gcStBtn.setTextBaseline(VPos.CENTER);
-		gcStBtn.setTextAlign(TextAlignment.CENTER);
-		gcStBtn.fillText("START", canvas.getWidth()/2, canvas.getHeight()/2);
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		gc.setFill(Color.rgb(100, 100, 100, 1.0));
+		gc.fillRoundRect(0, 0, 200, 90, 30, 30);
+		setTranslate(canvas, SceneManager.SCENE_WIDTH/3+20, SceneManager.SCENE_HEIGHT/2+30);
+		gc.setFill(Color.BLACK);
+		gc.setFont(stFont);
+		gc.setTextBaseline(VPos.CENTER);
+		gc.setTextAlign(TextAlignment.CENTER);
+		gc.fillText("PLAY", canvas.getWidth()/2, canvas.getHeight()/2);
 		
 
 	}

@@ -15,6 +15,7 @@ public class Customer extends Entity {
 	private Image cusImage;
 	private Beverage bev;
 	private boolean isWaiting = true;
+	public static int IMG_WIDTH = 60 ,IMG_HEIGHT =60;
 	//new boolean for check if isWaiting
 	
 	
@@ -35,7 +36,7 @@ public class Customer extends Entity {
 		return false;
 		//mai bok pai thum angggg
 	}
-	
+
 	public void move() {
 		
 	}

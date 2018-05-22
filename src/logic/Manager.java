@@ -23,13 +23,7 @@ public class Manager {
 		
 	}
 	public void startGame() {
-		// 
-		// 
-		// Fighting na krub !! :D 
-		//  Miss you jang loeyyyyy <3
-		//
-		//			from someone you already known.
-		//
+		
 		runAnimationTimer();
 	}
 	
@@ -46,10 +40,10 @@ public class Manager {
 	}
 	
 	public boolean serve(Customer customer) {
-		return false;
 		//do something when click at customer
 		//serve the wrong person --> do something
 		//serve the right person --> do something
+		return false;
 	}
 	
 	public void runAnimationTimer() {

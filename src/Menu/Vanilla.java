@@ -4,7 +4,7 @@ import Graphic.ResImage;
 
 public class Vanilla extends Ingredient {
 	public Vanilla() {
-		super.setName("Vanilla");
+		super.setName("vanilla");
 		super.setImage(ResImage.vanilla);
 	}
 }

@@ -6,9 +6,11 @@ public class ResImage {
 	public static Image artist,astronaut,businessman,detective,doctor;
 	public static Image dragcular,elf,engineer,fireman,bride,soilder,pilot,scientist,wizzard,zombie;
 	public static Image blueberry,strawberry,cherry,nut,milk,yogurt,vanilla,chocolate,orange,banana,honey;
-	public static Image mainBG,mixBar;
+	public static Image mainBG,mixBar,resultBG;
 	public static Image blueOrder, chobaOrder, chocOrder, strawbaOrder, strawshortOrder, vanillaOrder;
 	public static Image blueBev, chobaBev, chocBev, strawbaBev, strawshortBev, vanillaBev;
+	public static Image blender;
+	public static Image replayd,replayb;
 	
 	public static void loadResource() {
 		
@@ -39,6 +41,7 @@ public class ResImage {
 		
 		mainBG = new Image(ClassLoader.getSystemResource("scene/build.jpg").toString());
 		mixBar = new Image(ClassLoader.getSystemResource("scene/Pim-01.jpg").toString());
+		resultBG = new Image(ClassLoader.getSystemResource("scene/restbg.png").toString());
 		
 		blueOrder = new Image(ClassLoader.getSystemResource("bev/Blue bubble.png").toString());
 		chobaOrder = new Image(ClassLoader.getSystemResource("bev/choba bubble.png").toString());
@@ -53,6 +56,11 @@ public class ResImage {
 		strawbaBev = new Image(ClassLoader.getSystemResource("bev/strawba.png").toString());
 		strawshortBev = new Image(ClassLoader.getSystemResource("bev/strawshort.png").toString());
 		vanillaBev = new Image(ClassLoader.getSystemResource("bev/vanilla.png").toString());
+		
+		blender = new Image(ClassLoader.getSystemResource("bev/blender.gif").toString());
+		
+		replayb = new Image(ClassLoader.getSystemResource("etc/replayb.png").toString()); 
+		replayd = new Image(ClassLoader.getSystemResource("etc/replayd.png").toString()); 
 		
 	}
 }

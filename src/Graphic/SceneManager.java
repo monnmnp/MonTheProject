@@ -1,6 +1,7 @@
 package Graphic;
 
 
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -14,6 +15,7 @@ public class SceneManager {
 	
 	private static Pane mainManu;
 	private static Scene mainScene;
+	private static Pane recipeScene = new RecipeScene();
 	private static Pane scoreBoard = new ScoreBoard();
 	
 	public static void initialize(Stage stage) {
@@ -30,13 +32,17 @@ public class SceneManager {
 		Manager.getInstance().runAnimationTimer();
 	}
 	
+	public static void gotoRecipeScene() {
+		Scene scene = new Scene(recipeScene) ;
+		primaryStage.setScene(scene);
+	}
+	
 	public static void gotoScoreBoard() {
 		Scene scene = new Scene(Holder.getInstance().getScoreBoard());
 		primaryStage.setScene(scene);
 	}
 	
 	public static void goToGameScene() {
-//		Manager.startGame();
 		Scene scene = new Scene(Holder.getInstance().getGameStage());
 		primaryStage.setScene(scene);
 	}

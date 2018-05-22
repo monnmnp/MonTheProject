@@ -29,13 +29,11 @@ public class GameStage extends Pane {
 	private List<Canvas> beverages = new ArrayList<Canvas>();
 	private List<Image> images = new ArrayList<Image>();
 	private List<Canvas> customers = new ArrayList<Canvas>();
+	private Canvas recipeCV  = new Canvas(500,300);
 	
 	public GameStage() {
-		Canvas barMix = new Canvas(SceneManager.SCENE_WIDTH,220);
-		GraphicsContext gc = barMix.getGraphicsContext2D();
 		GraphicsContext g = gameStage.getGraphicsContext2D();
 		g.drawImage(ResImage.mixBar, 0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
-		setTranslate(barMix, 0, 330);
 		
 		ingredients.add(getdrawBtn(ResImage.blueberry));
 		setTranslate(ingredients.get(0), 20, 330);
@@ -83,6 +81,9 @@ public class GameStage extends Pane {
 		addOnCanvasEvent(ingredients.get(7), ResImage.honey, "honey");
 		images.add(ResImage.honey);
 		
+		Canvas recipeBtn = getdrawBtn(ResImage.recipeBtn);
+		setTranslate(recipeBtn, BTN_WIDTH*8+30, 330);
+		addRecipeEvent(recipeBtn,ResImage.recipeBtn);
 		
 		Canvas binBtn = getdrawBtn(ResImage.bin);
 		setTranslate(binBtn, 20, 440);
@@ -92,10 +93,10 @@ public class GameStage extends Pane {
 		setTranslate(blenderBtn, BTN_WIDTH+20, 440);
 		blenderEvent(blenderBtn, ResImage.blender);
 		
-//		orderLine();
+		g.drawImage(ResImage.blender2, 200, 370, 300, 188);
 		
 		getChildren().add(gameStage);
-		getChildren().add(barMix);
+		getChildren().add(recipeBtn);
 		getChildren().addAll(ingredients.get(0),ingredients.get(1),ingredients.get(2),ingredients.get(3));
 		getChildren().addAll(ingredients.get(4),ingredients.get(5),ingredients.get(6),ingredients.get(7),blenderBtn,binBtn);
 		for(int i = 0; i < 6; i++) {
@@ -183,11 +184,6 @@ public class GameStage extends Pane {
 				System.out.println("Serve111");
 				if(Manager.getInstance().serve()) {
 					System.out.println("Serve");
-//					Canvas blend = new Canvas(400,300);
-//					GraphicsContext gc = blend.getGraphicsContext2D();
-//					gc.drawImage(Holder.getInstance().getCustomers().get(0).getBlenderImg(), 0, 0, 400, 300);
-//					setTranslate(blend, 150, 250);
-//					getChildren().add(blend);
 					drawBlender(Holder.getInstance().getCustomers().get(0).getBlenderImg());
 				}
 				
@@ -263,6 +259,35 @@ public class GameStage extends Pane {
 		});
 	}
 	
+	private void addRecipeEvent(Canvas canvas,Image img){
+		canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+			@Override
+			public void handle(MouseEvent event) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		canvas.setOnMouseEntered(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				// TODO Auto-generated method stub
+				drawRecipe();
+			}
+		});
+		canvas.setOnMouseExited(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				// TODO Auto-generated method stub
+				GraphicsContext gc = recipeCV.getGraphicsContext2D();
+				gc.clearRect(0, 0, 500, 300);
+			}
+			
+		});
+	}
+	
 	public void drawBlender(Image img) {
 		ImageView iv = new ImageView();
 		iv.setImage(img);
@@ -273,6 +298,10 @@ public class GameStage extends Pane {
 		getChildren().add(iv);
 	}
 	
-//	public void draw
-
+	public void drawRecipe() {
+		GraphicsContext gc = recipeCV.getGraphicsContext2D();
+		gc.drawImage(ResImage.recipe, 150, 125, recipeCV.getWidth(), recipeCV.getHeight());
+		recipeCV.setFocusTraversable(true);
+		getChildren().add(recipeCV);
+	}
 }

@@ -16,8 +16,6 @@ public class Manager {
 	public static Manager instance = new Manager();
 	private int ingedients[][] = {{1,0,0,0,0,1,1,0},{0,0,1,0,1,1,0,0}, {0,1,0,0,0,1,0,1}, {0,0,1,0,0,1,0,1}, {0,0,0,1,0,1,0,1}, {0,1,0,0,1,1,0,0}};
 	
-	private int score = 0;
-	
 	public static Manager getInstance() {
 		return instance;
 	}
@@ -57,10 +55,11 @@ public class Manager {
 		for(int i = 0; i < 8; i++) {
 			Holder.getInstance().getIngredients().get(i).setPick(false);
 		}
+		Holder.getInstance().createScoreBoard();
+		SceneManager.gotoScoreBoard();
 		Holder.getInstance().getCustomers().clear();
 		Holder.getInstance().getGameStage().getChildren().clear();
 		Holder.getInstance().createGameState();
-		SceneManager.gotoScoreBoard();
 	}
 	
 	public boolean chkRecipe(String order) {
@@ -91,7 +90,7 @@ public class Manager {
 		if(chkRecipe(customer.order())) {
 			//serve the right person --> do something
 			customer.setIsWaiting(false);
-			score++;
+			Holder.getInstance().increaseScore();
 			System.out.println("serve");
 			for(int i = 0; i < 8; i++) {
 				Holder.getInstance().getIngredients().get(i).setPick(false);
@@ -111,7 +110,7 @@ public class Manager {
 		new AnimationTimer() {
 			private long startTime ;
 			private boolean isFirstFrame = true;
-			private long limitTime = 10;
+			private long limitTime = 120;
 			public Canvas testt = new Canvas(200,80);
 			private Font timeFont = Font.loadFont(ClassLoader.getSystemResourceAsStream("font/queen.otf"), 25);
 			@Override

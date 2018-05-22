@@ -29,7 +29,7 @@ public class ScoreBoard extends Pane{
 		gc.setTextBaseline(VPos.CENTER);
 		gc.setTextAlign(TextAlignment.CENTER);
 		gc.fillText("Result", SceneManager.SCENE_WIDTH/2, 100);
-		String scoreString = "SCORE : "+ 0;
+		String scoreString = "SCORE : "+ Holder.getInstance().getScore();
 		gc.fillText(scoreString, SceneManager.SCENE_WIDTH/2, 200 );
 		
 		drawBtn(replayBtn);

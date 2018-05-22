@@ -9,8 +9,8 @@ public class ResImage {
 	public static Image mainBG,mixBar,resultBG;
 	public static Image blueOrder, chobaOrder, chocOrder, strawbaOrder, strawshortOrder, vanillaOrder;
 	public static Image blueBev, chobaBev, chocBev, strawbaBev, strawshortBev, vanillaBev;
-	public static Image blender;
-	public static Image replayd,replayb,bin,human;
+	public static Image blender,blender2,playR,playP;
+	public static Image replayd,replayb,bin,human,recipe,recipeBtn;
 	public static Image blendBY,blendCB,blendCH,blendSB,blendSS,blendVM;
 	
 	public static void loadResource() {
@@ -43,6 +43,8 @@ public class ResImage {
 		mainBG = new Image(ClassLoader.getSystemResource("scene/build.jpg").toString());
 		mixBar = new Image(ClassLoader.getSystemResource("scene/Pim-01.jpg").toString());
 		resultBG = new Image(ClassLoader.getSystemResource("scene/restbg.png").toString());
+		recipe = new Image(ClassLoader.getSystemResource("scene/Pim-02.jpg").toString());
+		recipeBtn = new Image(ClassLoader.getSystemResource("ingre/book-flat.png").toString());
 		
 		blueOrder = new Image(ClassLoader.getSystemResource("bev/Blue bubble.png").toString());
 		chobaOrder = new Image(ClassLoader.getSystemResource("bev/choba bubble.png").toString());
@@ -59,6 +61,10 @@ public class ResImage {
 		vanillaBev = new Image(ClassLoader.getSystemResource("bev/vanilla.png").toString());
 		
 		blender = new Image(ClassLoader.getSystemResource("etc/blender2.png").toString());
+		blender2 = new Image(ClassLoader.getSystemResource("etc/blendereiei.png").toString());
+		
+		playR = new Image(ClassLoader.getSystemResource("etc/playR.png").toString());
+		playP = new Image(ClassLoader.getSystemResource("etc/playP.png").toString());
 		
 		replayb = new Image(ClassLoader.getSystemResource("etc/replayb.png").toString()); 
 		replayd = new Image(ClassLoader.getSystemResource("etc/replayd.png").toString()); 

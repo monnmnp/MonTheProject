@@ -13,6 +13,7 @@ import javafx.geometry.VPos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -89,7 +90,7 @@ public class GameStage extends Pane {
 		setTranslate(blenderBtn, BTN_WIDTH+20, 440);
 		blenderEvent(blenderBtn, ResImage.blender);
 		
-		orderLine();
+//		orderLine();
 		
 		getChildren().add(gameStage);
 		getChildren().add(barMix);
@@ -148,11 +149,12 @@ public class GameStage extends Pane {
 				System.out.println("Serve111");
 				if(Manager.getInstance().serve()) {
 					System.out.println("Serve");
-					Canvas blend = new Canvas(400,300);
-					GraphicsContext gc = blend.getGraphicsContext2D();
-					gc.drawImage(Holder.getInstance().getCustomers().get(0).getBlenderImg(), 0, 0, 400, 300);
-					setTranslate(blend, 150, 250);
-					getChildren().add(blend);
+//					Canvas blend = new Canvas(400,300);
+//					GraphicsContext gc = blend.getGraphicsContext2D();
+//					gc.drawImage(Holder.getInstance().getCustomers().get(0).getBlenderImg(), 0, 0, 400, 300);
+//					setTranslate(blend, 150, 250);
+//					getChildren().add(blend);
+					drawBlender(Holder.getInstance().getCustomers().get(0).getBlenderImg());
 				}
 				
 			}
@@ -227,9 +229,17 @@ public class GameStage extends Pane {
 		});
 	}
 	
-	public void drawBlender() {
-		
+	public void drawBlender(Image img) {
+		ImageView iv = new ImageView();
+		iv.setImage(img);
+		iv.setFitHeight(300);
+		iv.setFitWidth(400);
+		iv.setTranslateX(250);
+		iv.setTranslateY(150);
+		getChildren().add(iv);
 	}
+	
+//	public void draw
 	
 	public void orderLine() {
 		setTranslate(orderLine, 0, 0);

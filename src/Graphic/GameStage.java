@@ -260,14 +260,7 @@ public class GameStage extends Pane {
 	}
 	
 	private void addRecipeEvent(Canvas canvas,Image img){
-		canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
-			@Override
-			public void handle(MouseEvent event) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+		
 		canvas.setOnMouseEntered(new EventHandler<Event>() {
 
 			@Override
@@ -300,8 +293,8 @@ public class GameStage extends Pane {
 	
 	public void drawRecipe() {
 		GraphicsContext gc = recipeCV.getGraphicsContext2D();
-		gc.drawImage(ResImage.recipe, 150, 125,500,400);
-		recipeCV.setFocusTraversable(true);
+		gc.drawImage(ResImage.recipe, 0, 0, 500, 400);
+		setTranslate(recipeCV, 100, 75);
 		getChildren().add(recipeCV);
 	}
 }

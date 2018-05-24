@@ -5,10 +5,11 @@ import java.util.ArrayList;
 import javafx.scene.image.Image;
 
 public class Beverage {
-	private int price;
 	private String name;
-	private boolean isRight;
 	private Image beverageImage,blenderImage,orderImage;
+	private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
+	
+	
 	public Image getOrderImage() {
 		return orderImage;
 	}
@@ -24,11 +25,6 @@ public class Beverage {
 	public void setBlenderImage(Image blenderImage) {
 		this.blenderImage = blenderImage;
 	}
-
-	private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
-	
-	public Beverage() {
-	}
 	
 	public Image getBeverageImage() {
 		return beverageImage;
@@ -42,9 +38,6 @@ public class Beverage {
 		ingredients.add(ingredient);
 	}
 	
-	public boolean isRight() {
-		return isRight;
-	}
 	
 	public String getName() {
 		return name;
@@ -54,28 +47,7 @@ public class Beverage {
 		this.name = name;
 	}
 	
-	public void setRight(boolean isRight) {
-		this.isRight = isRight;
-	}
+
 	
-	public int getPrice() {
-		return price;
-	}
-	
-	public void setPrice(int price) {
-		this.price = price;
-	}
-	
-	public String toString() {
-		String s = "";
-		for(Ingredient x:ingredients) {
-			s += x.getName() + " \n";
-		}
-		return s;
-	}
-	
-	public boolean equal(Beverage other) {
-		if(this.toString() == other.toString()) return true;
-		return false;
-	}
+
 }

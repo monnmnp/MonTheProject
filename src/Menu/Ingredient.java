@@ -3,10 +3,9 @@ package Menu;
 import javafx.scene.image.Image;
 
 public class Ingredient {
-	protected String color;
-	protected String name;
-	protected Image image;
-	protected boolean isPick = false;
+	private String name;
+	private Image image;
+	private boolean isPick = false;
 	public Ingredient() {
 	}
 	public String getName() {

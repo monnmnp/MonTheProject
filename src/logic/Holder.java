@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.sound.midi.MidiEvent;
 
+import Character.Customer;
 import Graphic.GameStage;
 import Graphic.ScoreBoard;
 import Menu.Banana;
@@ -16,7 +17,6 @@ import Menu.Milk;
 import Menu.Strawberry;
 import Menu.Vanilla;
 import Menu.Yogurt;
-import character.Customer;
 
 public class Holder {
 	public static Holder instance = new Holder();

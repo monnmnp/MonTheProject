@@ -5,11 +5,10 @@ import javafx.scene.image.Image;
 
 public class BlueberryYogurt extends Beverage {
 	public BlueberryYogurt() {
-		super.setPrice(15);
-		super.setName("BlueberryYogurt");
-		super.setBeverageImage(ResImage.blueBev);
-		super.setBlenderImage(ResImage.blendBY);
-		super.setOrderImage(ResImage.blueOrder);
+		this.setName("BlueberryYogurt");
+		this.setBeverageImage(ResImage.blueBev);
+		this.setBlenderImage(ResImage.blendBY);
+		this.setOrderImage(ResImage.blueOrder);
 		Ingredient blueberry = new Blueberry();
 		Ingredient yogurt = new Yogurt();
 		Ingredient milk = new Milk();

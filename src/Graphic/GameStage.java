@@ -3,9 +3,9 @@ package Graphic;
 import java.util.ArrayList;
 import java.util.List;
 
+import Character.Customer;
 import Menu.Blueberry;
 import Menu.Ingredient;
-import character.Customer;
 import javafx.animation.AnimationTimer;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -27,9 +27,12 @@ public class GameStage extends Pane {
 	private static final double BTN_WIDTH = 70,BTN_HEIGHT = 70;
 	private List<Canvas> ingredients = new ArrayList<Canvas>();
 	private List<Canvas> beverages = new ArrayList<Canvas>();
-	private List<Image> images = new ArrayList<Image>();
 	private List<Canvas> customers = new ArrayList<Canvas>();
+	private List<Image> images = new ArrayList<Image>();
 	private Canvas recipeCV  = new Canvas(500,400);
+	private Canvas recipeBtn = new Canvas(BTN_WIDTH, BTN_HEIGHT);
+	private Canvas binBtn  = new Canvas(BTN_WIDTH, BTN_HEIGHT);
+	private Canvas blenderBtn = new Canvas(BTN_WIDTH, BTN_HEIGHT);
 	
 	public GameStage() {
 		GraphicsContext g = gameStage.getGraphicsContext2D();
@@ -81,15 +84,15 @@ public class GameStage extends Pane {
 		addOnCanvasEvent(ingredients.get(7), ResImage.honey, "honey");
 		images.add(ResImage.honey);
 		
-		Canvas recipeBtn = getdrawBtn(ResImage.recipeBtn);
+		drawBtn(recipeBtn, ResImage.recipeBtn);
 		setTranslate(recipeBtn, BTN_WIDTH*8+30, 330);
 		addRecipeEvent(recipeBtn,ResImage.recipeBtn);
 		
-		Canvas binBtn = getdrawBtn(ResImage.bin);
+		drawBtn(binBtn, ResImage.bin);
 		setTranslate(binBtn, 20, 440);
 		trashEvent(binBtn,ResImage.bin);
 		
-		Canvas blenderBtn = getdrawBtn(ResImage.blender);
+		drawBtn(blenderBtn, ResImage.blender);
 		setTranslate(blenderBtn, BTN_WIDTH+20, 440);
 		blenderEvent(blenderBtn, ResImage.blender);
 		
@@ -166,11 +169,14 @@ public class GameStage extends Pane {
 		for(int i = 0; i < 8; i++) {
 			Canvas canvas = ingredients.get(i);
 			Image img = images.get(i);
+			String name  = Holder.getInstance().getIngredients().get(i).getName();
 			if(Holder.getInstance().getIngredients().get(i).isPick()) {
 				drawBoard(canvas, img);
+				addOnCanvasEvent(canvas, img, name);
 			}
 			else {
 				drawBtn(canvas, img);
+				addOnCanvasEvent(canvas, img, name);
 			}
 		}
 	}
@@ -181,9 +187,10 @@ public class GameStage extends Pane {
 			@Override
 			public void handle(MouseEvent event) {
 				// TODO Auto-generated method stub
-				System.out.println("Serve111");
+//				System.out.println("Serve111");
 				if(Manager.getInstance().serve()) {
-					System.out.println("Serve");
+					ResImage.blenderS.play();
+//					System.out.println("Serve");
 					drawBlender(Holder.getInstance().getCustomers().get(0).getBlenderImg());
 				}
 				
@@ -214,6 +221,7 @@ public class GameStage extends Pane {
 			@Override
 			public void handle(MouseEvent event) {
 				// TODO Auto-generated method stub
+				ResImage.buttonS2.play();
 				for(Ingredient x : Holder.getInstance().getIngredients()) {
 					if(x.getName() == name) {
 						if(x.isPick()==true) {
@@ -235,6 +243,7 @@ public class GameStage extends Pane {
 			@Override
 			public void handle(MouseEvent event) {
 				// TODO Auto-generated method stub
+				ResImage.buttonS2.play();
 				for(int i = 0; i < 8; i++) {
 					Holder.getInstance().getIngredients().get(i).setPick(false);
 				}
@@ -276,6 +285,7 @@ public class GameStage extends Pane {
 				// TODO Auto-generated method stub
 				GraphicsContext gc = recipeCV.getGraphicsContext2D();
 				gc.clearRect(0, 0, 500, 400);
+				setTranslate(recipeCV, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
 			}
 			
 		});

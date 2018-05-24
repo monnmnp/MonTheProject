@@ -21,6 +21,7 @@ public class SceneManager {
 		mainManu = new OpeningGame();
 		mainScene = new Scene(mainManu,SCENE_WIDTH,SCENE_HEIGHT);
 		primaryStage = stage;
+		primaryStage.setTitle("SMOOTHIES GUY");
 		primaryStage.setResizable(false);
 		primaryStage.show();
 		gotoOpeningGame();
@@ -37,7 +38,10 @@ public class SceneManager {
 	}
 	
 	public static void goToGameScene() {
+		Manager.getInstance().startGame();
 		Scene scene = new Scene(Holder.getInstance().getGameStage());
+		ResImage.playS.setVolume(2);
+		ResImage.playS.play();
 		primaryStage.setScene(scene);
 	}
 }

@@ -5,7 +5,6 @@ import Graphic.ResImage;
 public class StrawberryShortCake extends Beverage {
 	public StrawberryShortCake() {
 		this.setName("StrawberryShortCake");
-		this.setPrice(10);
 		this.setBeverageImage(ResImage.strawshortBev);
 		this.setBlenderImage(ResImage.blendSS);
 		this.setOrderImage(ResImage.strawshortOrder);

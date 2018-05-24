@@ -13,10 +13,10 @@ import javafx.scene.text.TextAlignment;
 import logic.Holder;
 
 public class ScoreBoard extends Pane{
-	Canvas scoreBoard = new Canvas(SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
+	private Canvas scoreBoard = new Canvas(SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
 	private Font scoreFont = Font.loadFont(ClassLoader.getSystemResourceAsStream("font/impact.ttf"), 50);
 	private static int BTN_WIDTH = 220,BTN_HEIGHT = 80;
-	Canvas replayBtn = new Canvas(BTN_WIDTH, BTN_HEIGHT);
+	private Canvas replayBtn = new Canvas(BTN_WIDTH, BTN_HEIGHT);
 	
 	public ScoreBoard() {
 		GraphicsContext gc = scoreBoard.getGraphicsContext2D();
@@ -61,6 +61,7 @@ public class ScoreBoard extends Pane{
 			@Override
 			public void handle(MouseEvent event) {
 				// TODO Auto-generated method stub
+				ResImage.buttonS.play();
 				SceneManager.gotoOpeningGame();
 				Holder.getInstance().getScoreBoard().getChildren().clear();
 				Holder.getInstance().createScoreBoard();
